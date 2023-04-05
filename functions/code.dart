@@ -1,22 +1,23 @@
 Future<void> main() async {
-  Test().changeValue();
-  Test().changeName();
+  Test().changeValue(80);
+  Test().changeValue(50);
+
+  Test().changeValue(15);
+
+  Test().changeName(name: "Tahir", surname: "Sulermanov");
   await Test().changeSurname();
   Test().changeIntValue();
 }
 
 class Test {
-  int currentValue = 100;
-
-  void changeValue() {
+  void changeValue(int currentValue) {
     currentValue++;
     print(currentValue);
   }
 
-  String name = "Ismail";
-  void changeName() {
-    name = "Mansur";
-    print(name);
+  void changeName({String? name, String? surname}) {
+    String sumName = (name ?? 'No Name') + ' ' + (surname ?? "No surname");
+    print(sumName);
   }
 
   int age = 20;
